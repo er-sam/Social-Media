@@ -24,7 +24,6 @@ export const getFriendController = async (req, res) => {
 }
 
 export const addfriendController = async (req, res) => {
-    console.log(req.user)
     try {
         const userid = req.user._id;
         const friendid = req.params.id
