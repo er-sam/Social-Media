@@ -36,3 +36,9 @@ const PORT = process.env.PORT || 8000
 app.listen(PORT ,()=>{
     console.log(`Server running on ${PORT}`)
 })
+
+
+// UNHANDLED-PROMISE-TRY-C
+process.on('unhandledRejection',err=>{
+    console.log("unhandledRejection",err.message)
+})
