@@ -45,6 +45,7 @@ export const createPostController = async (req, res) => {
 
 //-----------LIKE--UNLIKE------------------------
 export const likeUnliked = async (req, res) => {
+try {
     const userid = req.user._id;
     const { id } = req.params;
     const post = await PostModels.findById(req.params.id)
@@ -68,6 +69,14 @@ export const likeUnliked = async (req, res) => {
             'length': length2
         })
     }
+} catch (error) {
+    res.status(500).send({
+        success: false,
+        message: 'Error in LIKE',
+        error
+    })
+    
+}
 } 
 
 
